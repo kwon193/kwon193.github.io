@@ -17,5 +17,5 @@ My research focuses on Computational Mechanics. My research interests include co
 
 | Computational Solid Mechanics    | Fluid-Structure Interaction    |  Real-Time Hybrid Simulation |                                                                                                                                                  
 | ---           | ---           |         --- |                                                                                                                                          
-| ![CSM](/image_sk/CSM.jpg) | ![FSI](/image_sk/FSI_figure.jpg) | ![RTHS](/image_sk/RTHS.meta2.jpg)  |
+| ![CSM](/image_sk/CSM.jpg) | ![FSI](/image_sk/FSI_figure.jpg) | ![RTHS](/image_sk/RTHS_meta2.jpg)  |
 | Time integration, Wave propagation, Non-linear structural dynamics, Multi-time-step (MTS) method | MTS method for CFD, Vortex-induced vibration | CyberMech concurrency platform, Seismic metamaterials   |
