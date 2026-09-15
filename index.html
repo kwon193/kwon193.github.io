@@ -10,7 +10,7 @@
   <!-- 상단 소속 바 -->
   <div class="top-bar">
     <div class="container top-bar-content">
-      <span>홍익대학교 공과대학 기계시스템디자인공학과</span>
+      <span>홍익대학교 AI융합과학기술대학 조선해양모빌리티공학과</span>
       <a href="contact.html">오시는 길 / Contact</a>
     </div>
   </div>
@@ -20,7 +20,7 @@
     <div class="container nav-container">
       <div class="logo-area">
         <h1>Computational Mechanics Lab</h1>
-        <span>전산역학 및 다중스케일 시뮬레이션 연구실</span>
+        <span> 인공지능 및 전산역학 연구실</span>
       </div>
       <button class="mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('show')">☰</button>
       <ul class="nav-links" id="navLinks">
@@ -38,8 +38,8 @@
     <div class="container hero-content">
       <h2>Advancing Engineering Theories through Computational Mechanics</h2>
       <p>
-        본 연구실은 재료의 파괴, 계면 역학, 다공성 매질 거동 해석을 위한 
-        새로운 유한요소 수치해석 기법(FEM, XFEM, Phase-Field)을 연구합니다.
+        본 연구실은 고체역학, 유체-구조 연성, 구조 동역학 해석을 위한 
+        새로운 인공지능 기반 수치해석 기법(FEM, Multisphysics, Multiscale, Real-time hybrid simulation)을 연구합니다.
       </p>
       <div>
         <a href="research.html" class="btn btn-primary">연구 분야 둘러보기</a>
@@ -51,15 +51,37 @@
   <!-- 연구실 최근 소식 요약 -->
   <section>
     <div class="container">
-      <h2 class="section-title">Latest Updates</h2>
-      <p class="section-subtitle">연구실의 최근 연구 성과 및 소식입니다.</p>
-      <div style="background: white; border: 1px solid var(--border-color); border-radius: 8px; padding: 24px;">
-        <ul style="list-style: none; line-height: 2;">
-          <li><strong>[2026.08]</strong> 김철수 박사과정 학생, USACM 학술대회 우수논문상 수상</li>
-          <li><strong>[2026.06]</strong> CMAME 저널에 Phase-Field 동적 파괴 관련 신규 논문 게재 확정</li>
-          <li><strong>[2026.04]</strong> 2026년도 후기 대학원생(석사/박사) 모집 시작 (~05.20까지)</li>
-        </ul>
+      <h2 class="section-title">Active Research Projects</h2>
+      <p class="section-subtitle">현재 집중적으로 수행 중인 핵심 연구 테마입니다.</p>
+
+      <div class="research-grid">
+        <div class="research-card">
+          <span class="card-tag">AI</span>
+          <h3>ML for Accelerating Simulation</h3>
+          <p> 머신러닝과 딥러닝을 활용한 시뮬레이션 속도 및 정확도를 높이는 AI 기반 수치해석 기법 개발</p>
+        </div>
+
+        <div class="research-card">
+          <span class="card-tag">Multiphysics</span>
+          <h3>Computational Fluid-Solid Interaction</h3>
+          <p>비압축성 유체와 구조물의 상호작용에 의해 발생하는 유동 유발 진동 및 소음 분석</p>
+        </div>
+
+        <div class="research-card">
+          <span class="card-tag">Structural Dynamics</span>
+          <h3>Advanced Time Integration Method</h3>
+          <p>대규모 및 복잡한 시스템 해석을 위한 안정적이고 효율적인 수치해석 기법 (시간적분법) 연구</p>
+        </div>
       </div>
+
+      <!-- <div style="margin-top: 50px; padding: 24px; background: var(--bg-light); border-radius: 8px;">
+        <h3 style="color: var(--primary); margin-bottom: 12px;">Past Research Projects</h3>
+        <ul style="padding-left: 20px; color: var(--text-muted); line-height: 1.8;">
+          <li>Extended Finite Element Method (XFEM) for Embedded Interfaces</li>
+          <li>Hydrogel Swelling & Stimulus-Responsive Mechanics</li>
+          <li>Particle Rafts and Surfactant Transport on Fluid Interfaces</li>
+        </ul>
+      </div> -->
     </div>
   </section>
 
