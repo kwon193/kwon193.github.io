@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact & Join | Computational Mechanics Lab</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="top-bar">
+    <div class="container top-bar-content">
+      <span>홍익대학교 공과대학 기계시스템디자인공학과</span>
+      <a href="contact.html">오시는 길 / Contact</a>
+    </div>
+  </div>
+
+  <header>
+    <div class="container nav-container">
+      <div class="logo-area">
+        <h1>Computational Mechanics Lab</h1>
+        <span>전산역학 및 다중스케일 시뮬레이션 연구실</span>
+      </div>
+      <button class="mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('show')">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="publications.html">Publications</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <section>
+    <div class="container">
+      <h2 class="section-title">Contact & Open Positions</h2>
+      <p class="section-subtitle">연구실 위치 안내 및 연구원 모집 요강입니다.</p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px;">
+        <div style="background: white; border: 1px solid var(--border-color); border-radius: 8px; padding: 24px;">
+          <h3 style="color: var(--primary); margin-bottom: 16px;">Contact Information</h3>
+          <ul style="list-style: none; line-height: 2;">
+            <li><strong>주소:</strong> 서울시 마포구 와우산로 94 홍익대학교 K동 402호</li>
+            <li><strong>Email:</strong> lab-inquiry@hongik.ac.kr</li>
+            <li><strong>Tel:</strong> 02-320-XXXX</li>
+            <li><strong>지하철:</strong> 2호선 홍대입구역 9번 출구 / 6호선 상수역 2번 출구</li>
+          </ul>
+        </div>
+
+        <div style="background: white; border: 1px solid var(--border-color); border-radius: 8px; padding: 24px;">
+          <h3 style="color: var(--primary); margin-bottom: 16px;">Graduate Student Recruitment</h3>
+          <p style="color: var(--text-muted); margin-bottom: 14px;">
+            유한요소해석, 파괴역학, 물리 기반 머신러닝 연구에 관심 있는 
+            <strong>석사/박사과정 및 학부 연구생</strong>을 상시 모집하고 있습니다.
+          </p>
+          <p style="font-size: 0.9rem;">
+            관심 있는 학생은 성적증명서와 이력서(CV)를 지참하여 지도교수 이메일로 연락 바랍니다.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="copyright">Copyright © 2026 Computational Mechanics Lab. All Rights Reserved.</div>
+    </div>
+  </footer>
+</body>
+</html>
