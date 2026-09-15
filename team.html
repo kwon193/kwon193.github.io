@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Team | Computational Mechanics Lab</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="top-bar">
+    <div class="container top-bar-content">
+      <span>홍익대학교 공과대학 기계시스템디자인공학과</span>
+      <a href="contact.html">오시는 길 / Contact</a>
+    </div>
+  </div>
+
+  <header>
+    <div class="container nav-container">
+      <div class="logo-area">
+        <h1>Computational Mechanics Lab</h1>
+        <span>전산역학 및 다중스케일 시뮬레이션 연구실</span>
+      </div>
+      <button class="mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('show')">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="publications.html">Publications</a></li>
+        <li><a href="team.html" class="active">Team</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <section>
+    <div class="container">
+      <h2 class="section-title">People</h2>
+      <p class="section-subtitle">연구실을 구성하는 연구진을 소개합니다.</p>
+
+      <!-- 지도교수 카드 -->
+      <div class="pi-card">
+        <div class="pi-avatar">Photo</div>
+        <div>
+          <h3 style="font-size: 1.5rem; color: var(--primary);">홍길동 (Gildong Hong) 교수</h3>
+          <p style="color: var(--primary-light); font-weight: 600; margin-bottom: 12px;">지도교수 (PI) / 조교수</p>
+          <p style="color: var(--text-muted); margin-bottom: 16px;">
+            전산역학, 파괴역학, XFEM 및 계면 손상 모델링 전문가입니다.<br />
+            <strong>Office:</strong> K동 402호 | <strong>Email:</strong> professor@hongik.ac.kr
+          </p>
+          <a href="#">[Google Scholar 프로필]</a>
+        </div>
+      </div>
+
+      <!-- 연구원 그리드 -->
+      <h3 style="color: var(--primary); margin-bottom: 20px;">Graduate Students</h3>
+      <div class="team-grid">
+        <div class="member-card">
+          <div class="member-avatar">Ph.D.</div>
+          <h4>김철수</h4>
+          <p style="color: var(--primary-light); font-size: 0.85rem;">박사과정</p>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 6px;">Phase-Field 파괴 해석</p>
+        </div>
+
+        <div class="member-card">
+          <div class="member-avatar">M.S.</div>
+          <h4>이영희</h4>
+          <p style="color: var(--primary-light); font-size: 0.85rem;">석사과정</p>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 6px;">유체-구조 연성(FSI)</p>
+        </div>
+
+        <div class="member-card">
+          <div class="member-avatar">M.S.</div>
+          <h4>박민수</h4>
+          <p style="color: var(--primary-light); font-size: 0.85rem;">석사과정</p>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 6px;">다공성 매질 역학</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="copyright">Copyright © 2026 Computational Mechanics Lab. All Rights Reserved.</div>
+    </div>
+  </footer>
+</body>
+</html>
