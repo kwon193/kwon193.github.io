@@ -3,53 +3,148 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Research | AICM Lab</title>
+  <title>Research | Computational Mechanics Lab</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
-  <!-- 공통 상단 네비게이션이 들어갈 자리 -->
+<body data-page="research">
+
+  <!-- 공통 상단 네비게이션 -->
   <div id="common-header"></div>
 
   <section>
     <div class="container">
-      <h2 class="section-title">Active Research Projects</h2>
-      <p class="section-subtitle">현재 집중적으로 수행 중인 핵심 연구 테마입니다.</p>
+      <h2 class="section-title">Research Projects</h2>
+      <p class="section-subtitle">
+        전산역학, 다중물리 시뮬레이션 및 첨단 수치해석 정식화에 관한 연구실의 주요 연구 테마입니다.
+      </p>
 
-      <div class="research-grid">
-        <div class="research-card">
-          <span class="card-tag">Fracture Mechanics</span>
-          <h3>Gradient Damage & Phase-Field Modeling</h3>
-          <p>복합재료 및 취성 재료 내 균열의 개시, 전파, 분기 거동을 메쉬 종속성 없이 정밀하게 포착하는 Phase-Field 손상 모델을 개발합니다.</p>
-        </div>
+      <!-- 세로 연속형 연구 주제 스트림 시작 -->
+      <div class="research-stream">
 
-        <div class="research-card">
-          <span class="card-tag">Multiphysics</span>
-          <h3>Fluid-Solid Interaction in Granular Media</h3>
-          <p>모세관 응집력 및 간극수압 변화에 따른 불포화 입상체 재료의 전단 밴딩과 인장 파괴 메커니즘을 수치해석적으로 규명합니다.</p>
-        </div>
+        <!-- ================= [연구 주제 1] ================= -->
+        <article class="research-block">
+          <span class="research-topic-badge">Fracture Mechanics</span>
+          <h3>1. Phase-Field 손상 모델링 및 동적 균열 분기 해석</h3>
+          
+          <div class="research-desc">
+            <p>
+              복합재료 및 취성 재료의 파괴 현상은 균열 표면의 불연속성으로 인해 전통적인 유한요소법(FEM)에서 메쉬 재구성(Remeshing)이 필수적이었습니다. 
+              본 연구에서는 확산 계면 접근법인 <strong>Phase-Field 손상 모델</strong>을 도입하여 복잡한 다차원 균열의 개시, 전파, 분기 및 병합 거동을 연속체 역학 프레임워크 내에서 메쉬 종속성 없이 정밀하게 예측합니다.
+            </p>
+            <p>
+              특히 고속 충격 하중 환경에서 발생하는 동적 파괴 현상에 대해 분산 병렬 연산 및 적응형 메쉬 세분화(AMR) 기법을 결합하여 대규모 파괴 시뮬레이션을 실시간 수준으로 가속화하는 연구를 수행하고 있습니다.
+            </p>
+          </div>
 
-        <div class="research-card">
-          <span class="card-tag">Dynamic Fracture</span>
-          <h3>Shock Loading & High-Rate Fragmentation</h3>
-          <p>고속 충격파 하중 하에서 극한 손상 및 고체 파편화 현상을 해석하기 위한 고성능 양함수 수치해석 기법을 연구합니다.</p>
-        </div>
+          <!-- 주제 1 관련 그림 및 캡션 (주제 바로 밑에 배치) -->
+          <div class="research-figure-box">
+            <!-- 
+              ※ 실제 연구 이미지 파일 경로로 변경하세요: assets/images/research_phase_field.png 
+              아래는 파일이 없을 경우 깨짐을 방지하는 안전장치가 포함된 고해상도 시뮬레이션 예시 이미지입니다.
+            -->
+            <img 
+              src="assets/images/research_phase_field.png" 
+              alt="Phase-field 동적 균열 전파 시뮬레이션 결과"
+              class="research-figure-img"
+              onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1507668077129-56e32842fceb?auto=format&fit=crop&q=80&w=900&h=420';"
+            />
+            <figcaption class="research-figure-caption">
+              <strong>Figure 1.</strong> 직사각형 시편의 동적 인장 하중에 따른 균열 분기(Branching) 시뮬레이션. 
+              (좌) 손상 파라미터 \(d\)의 공간 분포, (우) 균열 전파 속도에 따른 변형률 에너지 밀도 변화.
+            </figcaption>
+          </div>
+
+          <div class="research-links">
+            <a href="publications.html">📄 관련 연구 논문 보기 →</a>
+          </div>
+        </article>
+
+
+        <!-- ================= [연구 주제 2] ================= -->
+        <article class="research-block">
+          <span class="research-topic-badge">Multiphysics & Porous Media</span>
+          <h3>2. 입상체 매질의 모세관 유동 및 미세역학적 파괴 거동</h3>
+          
+          <div class="research-desc">
+            <p>
+              모래, 토양 및 금속 분말과 같은 불포화 입상체(Granular Media)는 공극 내 유체의 표면장력과 모세관 현상에 의해 복잡한 유효응력 상태를 나타냅니다. 
+              본 연구실은 입자 간 액체 가교(Liquid Bridge)에 의해 발생하는 미세 흡착력과 간극수압 변화를 연속체 스케일로 연계하는 <strong>다중스케일 다공성 수치해석 모델</strong>을 개발하고 있습니다.
+            </p>
+            <p>
+              이를 통해 지반 구조물의 액상화 및 산사태 예측뿐만 아니라, 첨단 세라믹 분말 성형 및 이차전지 전극 슬러리 건조 공정의 균열 억제 메커니즘을 규명합니다.
+            </p>
+          </div>
+
+          <!-- 주제 2 관련 그림 및 캡션 (주제 바로 밑에 배치) -->
+          <div class="research-figure-box">
+            <img 
+              src="assets/images/research_granular.png" 
+              alt="입상체 재료 내 유체 거동 및 액체 가교 미세역학 모델"
+              class="research-figure-img"
+              onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=900&h=420';"
+            />
+            <figcaption class="research-figure-caption">
+              <strong>Figure 2.</strong> 불포화 입상체 패킹 내 액체 가교 형성 및 전단 파괴 거동의 마이크로 CT 가시화 및 이산요소법(DEM)-유한요소법(FEM) 연성 해석 결과.
+            </figcaption>
+          </div>
+
+          <div class="research-links">
+            <a href="publications.html">📄 관련 연구 논문 보기 →</a>
+          </div>
+        </article>
+
+
+        <!-- ================= [연구 주제 3] ================= -->
+        <article class="research-block">
+          <span class="research-topic-badge">Impact Dynamics</span>
+          <h3>3. 극한 충격 하중 하에서의 다상 매질 충격파 해석</h3>
+          
+          <div class="research-desc">
+            <p>
+              초고속 충격, 폭발 및 관통 하중 하에서 고체 재료는 극심한 소성 변형과 충격파(Shock wave) 전파를 겪게 됩니다. 
+              본 연구에서는 강체-유체 계면의 급격한 변형을 포착할 수 있는 <strong>확장유한요소법(XFEM) 및 임베디드 계면 기법(Embedded Interface Method)</strong>을 활용하여 강체 관통자 충돌 시 발생하는 균열 파편화 거동을 해석합니다.
+            </p>
+          </div>
+
+          <!-- 주제 3 관련 그림 및 캡션 (주제 바로 밑에 배치) -->
+          <div class="research-figure-box">
+            <img 
+              src="assets/images/research_shock.png" 
+              alt="초고속 충격 하중 시 충격파 전파 및 재료 파편화 해석"
+              class="research-figure-img"
+              onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&q=80&w=900&h=420';"
+            />
+            <figcaption class="research-figure-caption">
+              <strong>Figure 3.</strong> 고속 관통 시험 시 발생하는 응력파 전파 및 시편 후면의 취성 파편화(Fragmentation) 수치 시뮬레이션 비교.
+            </figcaption>
+          </div>
+
+          <div class="research-links">
+            <a href="publications.html">📄 관련 연구 논문 보기 →</a>
+          </div>
+        </article>
+
       </div>
+      <!-- 세로 연속형 연구 스트림 끝 -->
 
-      <div style="margin-top: 50px; padding: 24px; background: var(--bg-light); border-radius: 8px;">
-        <h3 style="color: var(--primary); margin-bottom: 12px;">Past Research Projects</h3>
-        <ul style="padding-left: 20px; color: var(--text-muted); line-height: 1.8;">
-          <li>Extended Finite Element Method (XFEM) for Embedded Interfaces</li>
-          <li>Hydrogel Swelling & Stimulus-Responsive Mechanics</li>
-          <li>Particle Rafts and Surfactant Transport on Fluid Interfaces</li>
+      <!-- 하단: 과거 완료된 과제 요약 태그 -->
+      <div class="past-projects-box">
+        <h4>Completed Past Projects</h4>
+        <ul class="past-projects-list">
+          <li>Fluid-Structure Interaction (FSI) for Thin Flexible Membranes</li>
+          <li>XFEM Modeling of Heterogeneous Composites</li>
+          <li>Hydrogel Swelling & Mechanics of Soft Actuators</li>
+          <li>CO₂ Geosequestration and Caprock Integrity Analysis</li>
         </ul>
       </div>
+
     </div>
   </section>
 
-  <!-- 공통 하단 푸터가 들어갈 자리 -->
+  <!-- 공통 하단 푸터 -->
   <div id="common-footer"></div>
 
-  <!-- 공통 상하단바를 로드하는 스크립트 실행 -->
+  <!-- 공통 레이아웃 주입 스크립트 -->
   <script src="navigation.js"></script>
 </body>
 </html>
