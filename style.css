@@ -85,154 +85,58 @@ section { padding: 70px 0; }
 }
 
 /* 구성원 */
-/* ===================================================
-   지도교수(PI) 상세 이력 프로필 전용 스타일
-=================================================== */
-.detailed-profile-card {
+/* 1. 지도교수(PI) 전체 카드 스타일 조절 */
+.pi-card {
+  display: grid;
+  grid-template-columns: 180px 1fr; /* 이미지 가로 크기를 180px로 고정하고 우측 정보를 배치 */
+  gap: 28px;                       /* 사진과 글 사이의 정갈한 간격 */
   background: #ffffff;
-  border: 1px solid var(--border-color);
   border-radius: 8px;
-  padding: 24px 28px;
-  max-width: 900px;
-  margin: 0 auto 40px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  padding: 24px;                   /* 내부 여백을 살짝 줄여 조밀하게 변경 */
+  border: 1px solid var(--border-color);
+  margin-bottom: 40px;
+  align-items: start;              /* 사진과 텍스트를 카드 상단 높이에 맞춤 */
 }
 
-/* 상단 헤더 */
-.profile-header {
-  display: flex;
-  gap: 24px;
-  align-items: center;
-}
-
-.profile-avatar-container {
-  width: 120px;
-  height: 150px;
-  min-width: 120px;
+/* 2. 이미지를 감싸는 프레임 크기 제한 */
+.pi-avatar-container {
+  width: 100%;
+  max-width: 180px;                /* 기존 220px -> 180px로 축소 */
+  height: 230px;                   /* 기존 280px -> 230px로 아담하게 조정 */
   border-radius: 6px;
   overflow: hidden;
   border: 1px solid var(--border-color);
-  background: #f1f5f9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* 부담스럽지 않은 가벼운 입체감 */
 }
 
-.profile-img {
+/* 3. 이미지 자체 렌더링 방식 */
+.pi-image {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center;
+  object-fit: cover;               /* 비율 찌그러짐 방지 */
+  object-position: center;         /* 인물 중심 정렬 */
   display: block;
 }
 
-.profile-main-info h3 {
-  font-size: 1.35rem;
+/* 4. 우측 상세정보 줄간격 조정 */
+.pi-info h3 {
+  font-size: 1.35rem;              /* 타이틀 크기를 살짝 낮춰 정돈 */
   color: var(--primary);
   margin-bottom: 4px;
 }
 
-.profile-role {
-  font-size: 0.92rem;
-  color: var(--primary-light);
-  font-weight: 600;
-  margin-bottom: 8px;
-}
-
-.profile-interests {
-  font-size: 0.86rem;
-  color: var(--text-dark);
-  margin-bottom: 10px;
-  line-height: 1.5;
-}
-
-.profile-contact {
-  font-size: 0.84rem;
-  color: var(--text-muted);
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 4px;
-}
-
-.contact-sep {
-  color: #cbd5e1;
-  margin: 0 4px;
-}
-
-.cv-inline-link {
-  color: var(--primary-light);
-  font-weight: 600;
-}
-
-.cv-inline-link:hover {
-  color: var(--accent);
-  text-decoration: underline;
-}
-
-.profile-divider {
-  border: 0;
-  height: 1px;
-  background-color: var(--border-color);
-  margin: 20px 0;
-}
-
-/* 하단 학력 및 경력 2단 그리드 */
-.profile-body-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 28px;
-}
-
-.section-badge {
+.pi-title {
   font-size: 0.95rem;
-  font-weight: 700;
-  color: var(--primary);
-  margin-bottom: 14px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
+  font-weight: 600;
+  color: var(--primary-light);
+  margin-bottom: 12px;
 }
 
-/* 타임라인 리스트 */
-.timeline-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.timeline-list li {
-  position: relative;
-  padding-left: 16px;
-  margin-bottom: 14px;
-  border-left: 2px solid #e2e8f0;
-}
-
-.timeline-list li::before {
-  content: "";
-  position: absolute;
-  left: -5px;
-  top: 6px;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: var(--primary-light);
-}
-
-.timeline-date {
-  display: block;
-  font-size: 0.78rem;
-  font-weight: 700;
-  color: var(--accent);
-  margin-bottom: 2px;
-}
-
-.timeline-content {
-  font-size: 0.85rem;
-  color: var(--text-dark);
-  line-height: 1.45;
-}
-
-.timeline-content span {
-  font-size: 0.8rem;
+.pi-bio {
   color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 16px;
 }
 .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
 .member-card { background: white; border: 1px solid var(--border-color); border-radius: 8px; padding: 20px; text-align: center; }
@@ -248,18 +152,12 @@ footer { background-color: var(--primary); color: #cbd5e1; padding: 40px 0 20px;
   .mobile-toggle { display: block; }
   .nav-links { display: none; flex-direction: column; position: absolute; top: 75px; left: 0; width: 100%; background: white; padding: 20px; border-bottom: 1px solid var(--border-color); }
   .nav-links.show { display: flex; }
-  .profile-header {
-    flex-direction: column;
+  .pi-card {
+    grid-template-columns: 1fr;    /* 모바일에서는 가로 배치를 세로 배치로 전환 */
     text-align: center;
+    padding: 20px;
   }
-  .profile-avatar-container {
-    margin: 0 auto 12px;
-  }
-  .profile-contact {
-    justify-content: center;
-  }
-  .profile-body-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-}
+
+  .pi-avatar-container {
+    margin: 0 auto 16px;           /* 화면 중앙 정렬 및 아래쪽 여백 추가 */
+  }}
