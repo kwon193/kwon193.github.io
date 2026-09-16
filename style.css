@@ -88,7 +88,7 @@ section { padding: 70px 0; }
 /* 1. 지도교수(PI) 전체 카드 스타일 조절 */
 .pi-card {
   display: grid;
-  grid-template-columns: 180px 1fr; /* 이미지 가로 크기를 180px로 고정하고 우측 정보를 배치 */
+  grid-template-columns: 230px 1fr; /* 이미지 가로 크기를 230px로 고정하고 우측 정보를 배치 */
   gap: 28px;                       /* 사진과 글 사이의 정갈한 간격 */
   background: #ffffff;
   border-radius: 8px;
@@ -141,7 +141,7 @@ section { padding: 70px 0; }
 .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
 .member-card {
   display: grid;
-  grid-template-columns: 180px 1fr; /* 이미지 가로 크기를 180px로 고정하고 우측 정보를 배치 */
+  grid-template-columns: 280px 1fr; /* 이미지 가로 크기를 180px로 고정하고 우측 정보를 배치 */
   gap: 28px;                       /* 사진과 글 사이의 정갈한 간격 */
   background: #ffffff;
   border-radius: 8px;
