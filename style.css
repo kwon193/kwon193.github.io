@@ -171,6 +171,145 @@ section { padding: 70px 0; }
   display: block;
 }
 
+/* ===================================================
+   연구 분야 (Research) 세로 연속형 레이아웃 스타일
+=================================================== */
+
+/* 연구 주제들을 감싸는 세로 컨테이너 */
+.research-stream {
+  display: flex;
+  flex-direction: column;
+  gap: 60px; /* 각 연구 주제 사이의 넉넉한 간격 */
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+/* 개별 연구 주제 블록 */
+.research-block {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 36px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+/* 연구 주제 헤더 (태그 + 제목) */
+.research-topic-badge {
+  display: inline-block;
+  background: rgba(0, 83, 155, 0.08);
+  color: var(--primary-light);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.research-block h3 {
+  font-size: 1.5rem;
+  color: var(--primary);
+  margin-bottom: 16px;
+  line-height: 1.35;
+}
+
+/* 연구 주제 설명 텍스트 */
+.research-desc {
+  font-size: 0.96rem;
+  color: var(--text-dark);
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+.research-desc p {
+  margin-bottom: 12px;
+}
+
+/* 연구 그림(Figure) 컨테이너 박스 */
+.research-figure-box {
+  background: #f8fafc;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 16px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+/* 실제 연구 이미지 */
+.research-figure-img {
+  max-width: 100%;
+  height: auto;
+  max-height: 480px; /* 이미지가 지나치게 세로로 길어지는 것 방지 */
+  border-radius: 4px;
+  display: block;
+  margin: 0 auto;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* 논문 스타일의 그림 캡션 (Figure Caption) */
+.research-figure-caption {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 12px;
+  line-height: 1.5;
+  text-align: left;
+  padding: 0 8px;
+}
+
+.research-figure-caption strong {
+  color: var(--primary);
+}
+
+/* 하단 관련 논문 바로가기 링크 */
+.research-links {
+  border-top: 1px dashed var(--border-color);
+  padding-top: 16px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.research-links a {
+  font-size: 0.88rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* 완료된 과거 과제 요약 영역 */
+.past-projects-box {
+  max-width: 960px;
+  margin: 60px auto 0;
+  padding: 30px;
+  background: var(--bg-light);
+  border: 1px dashed var(--border-color);
+  border-radius: 8px;
+}
+
+.past-projects-box h4 {
+  font-size: 1.2rem;
+  color: var(--primary);
+  margin-bottom: 14px;
+}
+
+.past-projects-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+}
+
+.past-projects-list li {
+  background: #ffffff;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.88rem;
+  color: var(--text-dark);
+  border: 1px solid var(--border-color);
+}
+
 /* 푸터 */
 footer { background-color: var(--primary); color: #cbd5e1; padding: 40px 0 20px; font-size: 0.9rem; margin-top: auto; }
 .footer-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 30px; margin-bottom: 24px; }
@@ -188,5 +327,12 @@ footer { background-color: var(--primary); color: #cbd5e1; padding: 40px 0 20px;
   } 
   .pi-avatar-container {
     margin: 0 auto 18px;
+  }
+  
+  .research-block {
+    padding: 22px;
+  }
+  .research-block h3 {
+    font-size: 1.3rem;
   }
 }
