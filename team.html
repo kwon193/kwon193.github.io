@@ -13,22 +13,104 @@
   <section>
     <div class="container">
       <h2 class="section-title">People</h2>
-      <p class="section-subtitle">연구실을 구성하는 연구진을 소개합니다.</p>
+      <p class="section-subtitle">구성원</p>
 
-      <!-- 지도교수 카드 -->
-      <div class="pi-card">
-      <div class="pi-avatar-container">
-        <img src="assets/images/pi_profile.jpg" alt="권순범 교수 프로필 사진" class="pi-image" />
-      </div>
+      <!-- team.html - 지도교수(PI) 상세 프로필 카드 -->
+      <div class="detailed-profile-card">
+        <!-- 상단 요약 (사진 + 인적사항 + 연락처) -->
+        <div class="profile-header">
+          <div class="profile-avatar-container">
+            <!-- 
+              교수님 사진 경로를 src에 지정합니다. 
+              HTML 자체에 width/height와 object-fit을 직접 주어 고해상도 사진도 120x150 크기로 고정됩니다.
+            -->
+            <img 
+              src="assets/images/pi_profile.jpg" 
+              alt="지도교수 프로필" 
+              width="120"
+              height="150"
+              class="profile-img"
+            />
+          </div>
       
-      <div class="pi-info">
-        <h3 style="font-size: 1.5rem; color: var(--primary);">권순범 (Sun-Beom Kwon)</h3>
-        <p style="color: var(--primary-light); font-weight: 600; margin-bottom: 12px;"> 조교수</p>
-        <p style="color: var(--text-muted); margin-bottom: 16px;">
-          인공지능, 전산역학, 구조 동역학, 유한요소해석, 자율운항선박<br />
-          <strong>Office:</strong> D동 413호 | <strong>Email:</strong> sbkwon@hongik.ac.kr
-        </p>
-        <a href="#">[Google Scholar]</a>
+          <div class="profile-main-info">
+            <h3>권순범 (Sun-Beom Kwon)</h3>
+            <div class="profile-role"> 조교수</div>
+            <p class="profile-interests">
+              <strong>연구 분야:</strong> 인공지능, 전산역학, 전산역학(Computational Mechanics), 파괴 및 손상역학(Phase-Field, XFEM), 다중스케일/다중물리 수치해석
+            </p>
+            <div class="profile-contact">
+              <span>📍 홍익대학교 D동 413호</span>
+              <span class="contact-sep">|</span>
+              <span>📧 <a href="mailto:sbkwon@hongik.ac.kr">sbkwon@hongik.ac.kr</a></span>
+              <span class="contact-sep">|</span>
+              <a href="https://scholar.google.com/citations?user=duTAsQYAAAAJ&hl=en&authuser=1" target="_blank" class="cv-inline-link">Google Scholar</a>
+              <!-- <span class="contact-sep">|</span>
+              <a href="assets/pdf/CV_Professor.pdf" target="_blank" class="cv-inline-link">📄 CV 다운로드</a> -->
+            </div>
+          </div>
+        </div>
+      
+        <hr class="profile-divider" />
+      
+        <!-- 하단 2열 배치 (학력 & 주요 경력) -->
+        <div class="profile-body-grid">
+          <!-- 1. 학력 (Education) -->
+          <div class="profile-section">
+            <h4 class="section-badge">🎓 Education</h4>
+            <ul class="timeline-list">
+              <li>
+                <span class="timeline-date">2018 – 2022</span>
+                <div class="timeline-content">
+                  <strong>공학박사 (Ph.D.)</strong> — Mechanical Engineering<br />
+                  <span>Duke University (지도교수: Prof. John Dolbow)</span>
+                </div>
+              </li>
+              <li>
+                <span class="timeline-date">2016 – 2018</span>
+                <div class="timeline-content">
+                  <strong>공학석사 (M.S.)</strong> — 기계공학<br />
+                  <span>홍익대학교 대학원 기계공학과</span>
+                </div>
+              </li>
+              <li>
+                <span class="timeline-date">2010 – 2016</span>
+                <div class="timeline-content">
+                  <strong>공학사 (B.S.)</strong> — 기계시스템디자인공학<br />
+                  <span>홍익대학교 공과대학</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+      
+          <!-- 2. 경력 (Professional Experience) -->
+          <div class="profile-section">
+            <h4 class="section-badge">💼 Professional Experience</h4>
+            <ul class="timeline-list">
+              <li>
+                <span class="timeline-date">2024 – Present</span>
+                <div class="timeline-content">
+                  <strong>조교수 (Assistant Professor)</strong><br />
+                  <span>홍익대학교 공과대학 기계시스템디자인공학과</span>
+                </div>
+              </li>
+              <li>
+                <span class="timeline-date">2022 – 2024</span>
+                <div class="timeline-content">
+                  <strong>박사후연구원 (Postdoctoral Associate)</strong><br />
+                  <span>Department of Civil & Environmental Engineering, Duke Univ.</span>
+                </div>
+              </li>
+              <li>
+                <span class="timeline-date">2018 – 2022</span>
+                <div class="timeline-content">
+                  <strong>대학원 연구조교 (Graduate Research Assistant)</strong><br />
+                  <span>Computational Mechanics Lab, Duke Univ.</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -54,6 +136,23 @@
           <h4>박민수</h4>
           <p style="color: var(--primary-light); font-size: 0.85rem;">석사과정</p>
           <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 6px;">다공성 매질 역학</p>
+        </div>
+      </div>
+    </div>
+
+      <!-- 학부연구생 그리드 -->
+      <h3 style="color: var(--primary); margin-bottom: 20px;">Undergraduate Students</h3>
+      <div class="team-grid">
+        <div class="member-card">
+          <div class="member-avatar">Undergradate</div>
+          <h4>이송언</h4>
+          <p style="color: var(--primary-light); font-size: 0.85rem;">학부연구생</p>
+        </div>
+
+        <div class="member-card">
+          <div class="member-avatar">Undergradate</div>
+          <h4>차준혁</h4>
+          <p style="color: var(--primary-light); font-size: 0.85rem;">학부연구생</p>
         </div>
       </div>
     </div>
