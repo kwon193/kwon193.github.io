@@ -85,52 +85,65 @@ section { padding: 70px 0; }
 }
 
 /* 구성원 */
+/* 1. 지도교수(PI) 카드를 작고 밀착력 있게 변경 */
 .pi-card {
   display: grid;
-  grid-template-columns: 180px 1fr; /* 이미지 가로 크기를 180px로 고정하고 우측 정보를 배치 */
-  gap: 28px;                       /* 사진과 글 사이의 정갈한 간격 */
+  grid-template-columns: 120px 1fr; /* 사진 폭을 딱 120px로 아주 작게 고정 */
+  gap: 20px;                       /* 사진과 정보 사이의 여백을 오밀조밀하게 조절 */
   background: #ffffff;
-  border-radius: 8px;
-  padding: 24px;                   /* 내부 여백을 살짝 줄여 조밀하게 변경 */
+  border-radius: 6px;
+  padding: 18px 24px;              /* 카드 내부 여백을 줄여 전체적인 슬림함 강조 */
   border: 1px solid var(--border-color);
-  margin-bottom: 40px;
-  align-items: start;              /* 사진과 텍스트를 카드 상단 높이에 맞춤 */
+  margin-bottom: 30px;             /* 아래 요소와의 간격 최소화 */
+  align-items: center;             /* 사진과 오른쪽 글 높이를 한가운데 정렬 */
+  max-width: 800px;                /* 카드가 너무 가로로 길게 늘어나는 것을 방지 */
 }
-/* 2. 이미지를 감싸는 프레임 크기 제한 */
+
+/* 2. 사진 프레임 미니 박스화 */
 .pi-avatar-container {
   width: 100%;
-  max-width: 180px;                /* 기존 220px -> 180px로 축소 */
-  height: 230px;                   /* 기존 280px -> 230px로 아담하게 조정 */
-  border-radius: 6px;
+  max-width: 120px;                /* 180px -> 120px로 대폭 축소 */
+  height: 150px;                   /* 230px -> 150px로 컴팩트하게 조정 */
+  border-radius: 4px;
   overflow: hidden;
   border: 1px solid var(--border-color);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* 부담스럽지 않은 가벼운 입체감 */
 }
-/* 3. 이미지 자체 렌더링 방식 */
+
+/* 3. 이미지 비율 최적화 */
 .pi-image {
   width: 100%;
   height: 100%;
-  object-fit: cover;               /* 비율 찌그러짐 방지 */
-  object-position: center;         /* 인물 중심 정렬 */
+  object-fit: cover;               /* 찌그러짐 원천 차단 */
+  object-position: center;
   display: block;
 }
-/* 4. 우측 상세정보 줄간격 조정 */
+
+/* 4. 작아진 크기에 맞춘 텍스트 스케일링 */
 .pi-info h3 {
-  font-size: 1.35rem;              /* 타이틀 크기를 살짝 낮춰 정돈 */
+  font-size: 1.25rem;              /* 작고 또렷한 크기로 타이틀 축소 */
   color: var(--primary);
-  margin-bottom: 4px;
+  margin-bottom: 2px;
 }
+
 .pi-title {
-  font-size: 0.95rem;
+  font-size: 0.88rem;
   font-weight: 600;
   color: var(--primary-light);
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
+
 .pi-bio {
   color: var(--text-muted);
-  font-size: 0.9rem;
-  line-height: 1.6;
-  margin-bottom: 16px;
+  font-size: 0.85rem;              /* 글자 크기를 조밀하게 낮춤 */
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+/* 5. 정보 텍스트 크기 일관화 */
+.pi-info p {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--text-dark);
 }
 .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
 .member-card { background: white; border: 1px solid var(--border-color); border-radius: 8px; padding: 20px; text-align: center; }
@@ -147,11 +160,12 @@ footer { background-color: var(--primary); color: #cbd5e1; padding: 40px 0 20px;
   .nav-links { display: none; flex-direction: column; position: absolute; top: 75px; left: 0; width: 100%; background: white; padding: 20px; border-bottom: 1px solid var(--border-color); }
   .nav-links.show { display: flex; }
   .pi-card {
-    grid-template-columns: 1fr;    /* 모바일에서는 가로 배치를 세로 배치로 전환 */
+    grid-template-columns: 1fr;    /* 모바일에서는 가로 폭 부족 대비 세로 배치 */
     text-align: center;
-    padding: 20px;
+    padding: 16px;
   }
+
   .pi-avatar-container {
-    margin: 0 auto 16px;           /* 화면 중앙 정렬 및 아래쪽 여백 추가 */
+    margin: 0 auto 12px;           /* 모바일 화면 한가운데 오도록 정렬 */
   }
 }
