@@ -85,65 +85,154 @@ section { padding: 70px 0; }
 }
 
 /* 구성원 */
-/* 1. 지도교수(PI) 카드를 작고 밀착력 있게 변경 */
-.pi-card {
-  display: grid;
-  grid-template-columns: 120px 1fr; /* 사진 폭을 딱 120px로 아주 작게 고정 */
-  gap: 20px;                       /* 사진과 정보 사이의 여백을 오밀조밀하게 조절 */
+/* ===================================================
+   지도교수(PI) 상세 이력 프로필 전용 스타일
+=================================================== */
+.detailed-profile-card {
   background: #ffffff;
-  border-radius: 6px;
-  padding: 18px 24px;              /* 카드 내부 여백을 줄여 전체적인 슬림함 강조 */
   border: 1px solid var(--border-color);
-  margin-bottom: 30px;             /* 아래 요소와의 간격 최소화 */
-  align-items: center;             /* 사진과 오른쪽 글 높이를 한가운데 정렬 */
-  max-width: 800px;                /* 카드가 너무 가로로 길게 늘어나는 것을 방지 */
+  border-radius: 8px;
+  padding: 24px 28px;
+  max-width: 900px;
+  margin: 0 auto 40px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
 }
 
-/* 2. 사진 프레임 미니 박스화 */
-.pi-avatar-container {
-  width: 100%;
-  max-width: 120px;                /* 180px -> 120px로 대폭 축소 */
-  height: 150px;                   /* 230px -> 150px로 컴팩트하게 조정 */
-  border-radius: 4px;
+/* 상단 헤더 */
+.profile-header {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.profile-avatar-container {
+  width: 120px;
+  height: 150px;
+  min-width: 120px;
+  border-radius: 6px;
   overflow: hidden;
   border: 1px solid var(--border-color);
+  background: #f1f5f9;
 }
 
-/* 3. 이미지 비율 최적화 */
-.pi-image {
+.profile-img {
   width: 100%;
   height: 100%;
-  object-fit: cover;               /* 찌그러짐 원천 차단 */
+  object-fit: cover;
   object-position: center;
   display: block;
 }
 
-/* 4. 작아진 크기에 맞춘 텍스트 스케일링 */
-.pi-info h3 {
-  font-size: 1.25rem;              /* 작고 또렷한 크기로 타이틀 축소 */
+.profile-main-info h3 {
+  font-size: 1.35rem;
   color: var(--primary);
-  margin-bottom: 2px;
+  margin-bottom: 4px;
 }
 
-.pi-title {
-  font-size: 0.88rem;
-  font-weight: 600;
+.profile-role {
+  font-size: 0.92rem;
   color: var(--primary-light);
+  font-weight: 600;
   margin-bottom: 8px;
 }
 
-.pi-bio {
-  color: var(--text-muted);
-  font-size: 0.85rem;              /* 글자 크기를 조밀하게 낮춤 */
+.profile-interests {
+  font-size: 0.86rem;
+  color: var(--text-dark);
+  margin-bottom: 10px;
   line-height: 1.5;
-  margin-bottom: 12px;
 }
 
-/* 5. 정보 텍스트 크기 일관화 */
-.pi-info p {
+.profile-contact {
+  font-size: 0.84rem;
+  color: var(--text-muted);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+}
+
+.contact-sep {
+  color: #cbd5e1;
+  margin: 0 4px;
+}
+
+.cv-inline-link {
+  color: var(--primary-light);
+  font-weight: 600;
+}
+
+.cv-inline-link:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+.profile-divider {
+  border: 0;
+  height: 1px;
+  background-color: var(--border-color);
+  margin: 20px 0;
+}
+
+/* 하단 학력 및 경력 2단 그리드 */
+.profile-body-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+
+.section-badge {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* 타임라인 리스트 */
+.timeline-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.timeline-list li {
+  position: relative;
+  padding-left: 16px;
+  margin-bottom: 14px;
+  border-left: 2px solid #e2e8f0;
+}
+
+.timeline-list li::before {
+  content: "";
+  position: absolute;
+  left: -5px;
+  top: 6px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--primary-light);
+}
+
+.timeline-date {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 2px;
+}
+
+.timeline-content {
   font-size: 0.85rem;
-  line-height: 1.5;
   color: var(--text-dark);
+  line-height: 1.45;
+}
+
+.timeline-content span {
+  font-size: 0.8rem;
+  color: var(--text-muted);
 }
 .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
 .member-card { background: white; border: 1px solid var(--border-color); border-radius: 8px; padding: 20px; text-align: center; }
@@ -159,13 +248,18 @@ footer { background-color: var(--primary); color: #cbd5e1; padding: 40px 0 20px;
   .mobile-toggle { display: block; }
   .nav-links { display: none; flex-direction: column; position: absolute; top: 75px; left: 0; width: 100%; background: white; padding: 20px; border-bottom: 1px solid var(--border-color); }
   .nav-links.show { display: flex; }
-  .pi-card {
-    grid-template-columns: 1fr;    /* 모바일에서는 가로 폭 부족 대비 세로 배치 */
+  .profile-header {
+    flex-direction: column;
     text-align: center;
-    padding: 16px;
   }
-
-  .pi-avatar-container {
-    margin: 0 auto 12px;           /* 모바일 화면 한가운데 오도록 정렬 */
+  .profile-avatar-container {
+    margin: 0 auto 12px;
+  }
+  .profile-contact {
+    justify-content: center;
+  }
+  .profile-body-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
   }
 }
