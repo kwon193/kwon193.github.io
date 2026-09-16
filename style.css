@@ -142,6 +142,174 @@ section { padding: 70px 0; }
 .member-card { background: white; border: 1px solid var(--border-color); border-radius: 8px; padding: 20px; text-align: center; }
 .member-avatar { width: 90px; height: 90px; background: #e2e8f0; border-radius: 50%; margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; font-weight: bold; }
 
+/* ===================================================
+   지도교수(PI) 상세 이력 카드 - 세로 정렬형 (style.css 통합본)
+=================================================== */
+
+/* 메인 카드 박스 */
+.pi-detailed-card {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 28px;
+  max-width: 900px;
+  margin: 0 auto 45px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+}
+
+/* 상단 영역: 사진 + 기본 인적사항 */
+.pi-header-section {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+/* 120x150 아담한 사진 액자 고정 */
+.pi-avatar-container {
+  width: 120px;
+  height: 150px;
+  min-width: 120px;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  background: #f1f5f9;
+}
+
+.pi-profile-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* 인적사항 텍스트 그룹 */
+.pi-essential-info h3 {
+  font-size: 1.4rem;
+  color: var(--primary); 
+  margin-bottom: 4px;
+}
+
+.pi-role-title {
+  font-size: 0.92rem;
+  color: var(--primary-light); 
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.pi-research-fields {
+  font-size: 0.86rem;
+  color: var(--text-dark);
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+.pi-contact-links {
+  font-size: 0.84rem;
+  color: var(--text-muted);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+}
+
+.info-sep {
+  color: #cbd5e1;
+  margin: 0 6px;
+}
+
+.pi-inline-link {
+  color: var(--primary-light);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.pi-inline-link:hover {
+  color: var(--accent); 
+  text-decoration: underline;
+}
+
+/* 상하 영역 구분선 */
+.pi-card-divider {
+  border: 0;
+  height: 1px;
+  background-color: var(--border-color);
+  margin: 24px 0;
+}
+
+/* 하단 영역: 학력 밑에 경력이 세로(1열)로 정렬되는 구조 */
+.pi-history-section {
+  display: flex;
+  flex-direction: column;
+  gap: 36px; /* 학력 섹션과 경력 섹션 사이의 여유 공간 */
+}
+
+.history-column {
+  width: 100%;
+}
+
+.history-badge {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border-bottom: 2px solid var(--bg-light);
+  padding-bottom: 6px;
+}
+
+/* 하단 타임라인 리스트 */
+.pi-timeline {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.pi-timeline li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 18px;
+  border-left: 2px solid var(--border-color); /* 세로줄 표시 */
+}
+
+.pi-timeline li:last-child {
+  margin-bottom: 0;
+}
+
+/* 타임라인 원형 점 */
+.pi-timeline li::before {
+  content: "";
+  position: absolute;
+  left: -5px;
+  top: 6px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--primary-light);
+}
+
+.timeline-year {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--accent); 
+  margin-bottom: 4px;
+}
+
+.timeline-desc {
+  font-size: 0.86rem;
+  color: var(--text-dark);
+  line-height: 1.5;
+}
+
+.sub-desc {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+
 /* 푸터 */
 footer { background-color: var(--primary); color: #cbd5e1; padding: 40px 0 20px; font-size: 0.9rem; margin-top: auto; }
 .footer-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 30px; margin-bottom: 24px; }
@@ -157,7 +325,16 @@ footer { background-color: var(--primary); color: #cbd5e1; padding: 40px 0 20px;
     text-align: center;
     padding: 20px;
   }
-
+  .pi-header-section {
+    flex-direction: column;
+    text-align: center;
+  }
+  
   .pi-avatar-container {
-    margin: 0 auto 16px;           /* 화면 중앙 정렬 및 아래쪽 여백 추가 */
-  }}
+    margin: 0 auto 12px;
+  }
+  
+  .pi-contact-links {
+    justify-content: center;
+  }
+}
