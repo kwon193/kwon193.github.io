@@ -86,7 +86,22 @@ section { padding: 70px 0; }
 
 /* 구성원 */
 .pi-card { display: grid; grid-template-columns: 220px 1fr; gap: 30px; background: white; border-radius: 8px; padding: 30px; border: 1px solid var(--border-color); margin-bottom: 40px; }
-.pi-avatar { width: 100%; height: 220px; background: #cbd5e1; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #475569; }
+.pi-avatar-container {
+  width: 100%;
+  max-width: 220px;
+  height: 280px;            /* 직사각형 프로필에 알맞은 높이 설정 */
+  border-radius: 8px;       /* 가장자리 둥글게 처리 */
+  overflow: hidden;         /* 테두리를 벗어나는 이미지 영역은 깔끔하게 잘라내기 */
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); /* 은은한 그림자 효과 */
+}
+.pi-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;        /* 이미지가 찌그러지지 않고 프레임에 꽉 차게 조절함 */
+  object-position: center;  /* 이미지의 중심이 박스 한가운데에 오도록 설정 */
+  display: block;
+}
 .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
 .member-card { background: white; border: 1px solid var(--border-color); border-radius: 8px; padding: 20px; text-align: center; }
 .member-avatar { width: 90px; height: 90px; background: #e2e8f0; border-radius: 50%; margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; font-weight: bold; }
