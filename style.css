@@ -25,8 +25,36 @@ a:hover { color: var(--accent); }
 /* 네비게이션 헤더 */
 header { position: sticky; top: 0; background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border-color); z-index: 1000; }
 .nav-container { display: flex; justify-content: space-between; align-items: center; height: 75px; }
-.logo-area h1 { font-size: 1.3rem; font-weight: 700; color: var(--primary); }
-.logo-area span { display: block; font-size: 0.8rem; color: var(--text-muted); }
+/* 1. 로고를 감싸는 부모 영역 정렬 */
+.logo-area {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  text-decoration: none; /* 로고 영역 링크 밑줄 제거 */
+}
+
+/* 2. 네비게이션 바 내부 로고 이미지 크기 제어 */
+.header-logo-img {
+  height: 48px;             /* ★ 헤더 높이에 자연스럽게 녹아드는 이상적인 로고 높이 */
+  width: auto;              /* 비율 유지하며 가로 길이를 자동 맞춤 */
+  max-width: 280px;         /* 너무 길어질 경우 대비 가로 최대 한계 설정 */
+  object-fit: contain;      /* 찌그러짐 원천 차단 */
+  display: block;
+}
+
+/* 3. 예비용 로고 텍스트 디자인 (로고 이미지가 깨졌을 때 구동) */
+.logo-text-only h1 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1.1;
+}
+
+.logo-text-only span {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
 .nav-links { display: flex; list-style: none; gap: 24px; align-items: center; }
 .nav-links a { color: var(--text-dark); font-weight: 500; font-size: 0.95rem; padding: 8px 0; position: relative; }
 .nav-links a:hover, .nav-links a.active { color: var(--primary-light); font-weight: 700; }
@@ -320,6 +348,9 @@ footer { background-color: var(--primary); color: #cbd5e1; padding: 40px 0 20px;
   .mobile-toggle { display: block; }
   .nav-links { display: none; flex-direction: column; position: absolute; top: 75px; left: 0; width: 100%; background: white; padding: 20px; border-bottom: 1px solid var(--border-color); }
   .nav-links.show { display: flex; }
+  .header-logo-img {
+    height: 38px;           /* 화면이 작은 스마트폰 기기에서는 조금 더 작고 콤팩트하게 축소 */
+  }
   .pi-card {
     grid-template-columns: 1fr;    /* 모바일에서는 가로 배치를 세로 배치로 전환 */
     text-align: center;
