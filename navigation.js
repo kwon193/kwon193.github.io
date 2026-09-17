@@ -18,10 +18,19 @@ document.addEventListener("DOMContentLoaded", () => {
     <!-- 네비게이션 헤더 -->
     <header>
       <div class="container nav-container">
-        <div class="logo-area">
-          <h1>Artificial Intelligence & Computational Mechanics Lab</h1>
-          <span>인공지능 전산역학 연구실</span>
-        </div>
+        <a href="index.html" class="logo-area">
+          <img 
+            src="assets/images/lab_logo.png" 
+            alt="AI & Computational Mechanics Laboratory Logo" 
+            class="header-logo-img"
+            onerror="this.onerror=null; this.style.display='none'; document.getElementById('logo-fallback-text').style.display='block';"
+          />
+          <!-- 원본 로고 이미지가 없을 경우 깨지지 않고 글씨로 대체해 주는 보조 장치 -->
+          <div id="logo-fallback-text" class="logo-text-only" style="display: none;">
+            <h1>CML</h1>
+            <span>Articial Intelligence & Computational Mechanics Lab</span>
+          </div>
+        </a>
         <button class="mobile-toggle" id="menuToggle">☰</button>
         <ul class="nav-links" id="navLinks">
           <li><a href="index.html" class="${page === 'index.html' ? 'active' : ''}">Home</a></li>
