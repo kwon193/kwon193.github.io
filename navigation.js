@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
       <div class="container nav-container">
         <a href="index.html" class="logo-area">
           <img 
-            src="assets/images/lab_logo.png" 
+            src="assets/images/lab_logo_long.png" 
             alt="AI & Computational Mechanics Laboratory Logo" 
             class="header-logo-img"
             onerror="this.onerror=null; this.style.display='none'; document.getElementById('logo-fallback-text').style.display='block';"
