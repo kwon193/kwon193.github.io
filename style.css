@@ -29,15 +29,18 @@ header { position: sticky; top: 0; background: rgba(255, 255, 255, 0.98); backdr
 .logo-area {
   display: flex;
   align-items: center;
-  height: 100%;
-  text-decoration: none; /* 로고 영역 링크 밑줄 제거 */
+  justify-content: center;
+  height: 100%;       /* 헤더 높이 75px을 100% 가득 채움 */
+  padding: 12px 0;    /* ★ 상하 12px 여백을 균등하게 주어 내부 정렬 유도 */
+  box-sizing: border-box;
 }
 
 /* 2. 네비게이션 바 내부 로고 이미지 크기 제어 */
 .header-logo-img {
-  height: 48px;             /* ★ 헤더 높이에 자연스럽게 녹아드는 이상적인 로고 높이 */
+  height: 100%;             /* ★ 헤더 높이에 자연스럽게 녹아드는 이상적인 로고 높이 */
+  max-height: 51px;   /* 헤더 높이 75px에서 상하 여백을 제한 물리적 최대 높이 (75 - 24 = 51) */
   width: auto;              /* 비율 유지하며 가로 길이를 자동 맞춤 */
-  max-width: 280px;         /* 너무 길어질 경우 대비 가로 최대 한계 설정 */
+  max-width: 320px;         /* 너무 길어질 경우 대비 가로 최대 한계 설정 */
   object-fit: contain;      /* 찌그러짐 원천 차단 */
   display: block;
 }
@@ -348,8 +351,12 @@ footer { background-color: var(--primary); color: #cbd5e1; padding: 40px 0 20px;
   .mobile-toggle { display: block; }
   .nav-links { display: none; flex-direction: column; position: absolute; top: 75px; left: 0; width: 100%; background: white; padding: 20px; border-bottom: 1px solid var(--border-color); }
   .nav-links.show { display: flex; }
+  .logo-area {
+    padding: 10px 0; /* 모바일 전용 비례 상하 패딩 */
+  }
+
   .header-logo-img {
-    height: 38px;           /* 화면이 작은 스마트폰 기기에서는 조금 더 작고 콤팩트하게 축소 */
+    max-height: 45px; /* 모바일 높이에 최적화된 최대 로고 높이 (65 - 20 = 45) */
   }
   .pi-card {
     grid-template-columns: 1fr;    /* 모바일에서는 가로 배치를 세로 배치로 전환 */
