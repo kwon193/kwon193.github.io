@@ -1,0 +1,346 @@
+```html
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>News | AICM Lab</title>
+
+  <!-- Existing common stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- News page specific styles -->
+  <style>
+    /* ===================================================
+       News
+    =================================================== */
+
+    .news-list {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .news-item {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 30px;
+      padding: 28px;
+      background: var(--bg-white);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+    }
+
+    .news-image-container {
+      width: 100%;
+      height: 210px;
+      overflow: hidden;
+      border-radius: 6px;
+      border: 1px solid var(--border-color);
+      background: var(--bg-light);
+    }
+
+    .news-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .news-date {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+
+    .news-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1.4;
+      margin-bottom: 18px;
+    }
+
+    .news-language {
+      margin-bottom: 16px;
+    }
+
+    .news-language-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--primary-light);
+      text-transform: uppercase;
+      margin-bottom: 5px;
+      letter-spacing: 0.02em;
+    }
+
+    .news-language p {
+      font-size: 0.93rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .news-divider {
+      border: 0;
+      border-top: 1px solid var(--border-color);
+      margin: 16px 0;
+    }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+      .news-list {
+        gap: 30px;
+      }
+
+      .news-item {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 20px;
+      }
+
+      .news-image-container {
+        height: auto;
+        aspect-ratio: 16 / 9;
+      }
+
+      .news-title {
+        font-size: 1.25rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Common Header -->
+  <div id="common-header"></div>
+
+
+  <!-- ===================================================
+       News Section
+  =================================================== -->
+
+  <section>
+    <div class="container">
+
+      <h2 class="section-title">News</h2>
+      <p class="section-subtitle">연구실 소식</p>
+
+
+      <div class="news-list">
+
+
+        <!-- =================================================
+             News Item 1
+        ================================================== -->
+        <article class="news-item">
+
+          <!-- Image -->
+          <div class="news-image-container">
+            <img
+              src="assets/images/news/news-01.jpg"
+              alt="News image"
+              class="news-image"
+            />
+          </div>
+
+
+          <!-- Content -->
+          <div class="news-content">
+
+            <div class="news-date">
+              September 19, 2026
+            </div>
+
+            <h3 class="news-title">
+              News Title Goes Here
+            </h3>
+
+
+            <!-- English -->
+            <div class="news-language">
+
+              <div class="news-language-label">
+                English
+              </div>
+
+              <p>
+                English news content goes here.
+                This section can describe research activities,
+                publications, awards, conferences, collaborations,
+                or other important news from the AICM Lab.
+              </p>
+
+            </div>
+
+
+            <hr class="news-divider">
+
+
+            <!-- Korean -->
+            <div class="news-language">
+
+              <div class="news-language-label">
+                한국어
+              </div>
+
+              <p>
+                국문 뉴스 내용을 입력합니다.
+                연구 성과, 논문 게재, 수상, 학회 참석,
+                공동연구 및 연구실의 주요 소식을 작성할 수 있습니다.
+              </p>
+
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <!-- =================================================
+             News Item 2
+        ================================================== -->
+        <article class="news-item">
+
+          <!-- Image -->
+          <div class="news-image-container">
+            <img
+              src="assets/images/news/news-02.jpg"
+              alt="News image"
+              class="news-image"
+            />
+          </div>
+
+
+          <!-- Content -->
+          <div class="news-content">
+
+            <div class="news-date">
+              September 10, 2026
+            </div>
+
+            <h3 class="news-title">
+              Another News Title
+            </h3>
+
+
+            <!-- English -->
+            <div class="news-language">
+
+              <div class="news-language-label">
+                English
+              </div>
+
+              <p>
+                English news content goes here.
+                Add the details of the event, research achievement,
+                publication, conference, or other laboratory activity.
+              </p>
+
+            </div>
+
+
+            <hr class="news-divider">
+
+
+            <!-- Korean -->
+            <div class="news-language">
+
+              <div class="news-language-label">
+                한국어
+              </div>
+
+              <p>
+                국문 뉴스 내용을 입력합니다.
+                해당 소식에 대한 자세한 내용을 작성할 수 있습니다.
+              </p>
+
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <!-- =================================================
+             News Item 3
+        ================================================== -->
+        <article class="news-item">
+
+          <!-- Image -->
+          <div class="news-image-container">
+            <img
+              src="assets/images/news/news-03.jpg"
+              alt="News image"
+              class="news-image"
+            />
+          </div>
+
+
+          <!-- Content -->
+          <div class="news-content">
+
+            <div class="news-date">
+              August 25, 2026
+            </div>
+
+            <h3 class="news-title">
+              Research Achievement
+            </h3>
+
+
+            <!-- English -->
+            <div class="news-language">
+
+              <div class="news-language-label">
+                English
+              </div>
+
+              <p>
+                English news content goes here.
+              </p>
+
+            </div>
+
+
+            <hr class="news-divider">
+
+
+            <!-- Korean -->
+            <div class="news-language">
+
+              <div class="news-language-label">
+                한국어
+              </div>
+
+              <p>
+                국문 뉴스 내용을 입력합니다.
+              </p>
+
+            </div>
+
+          </div>
+
+        </article>
+
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Common Footer -->
+  <div id="common-footer"></div>
+
+
+  <!-- Common Navigation / Footer Script -->
+  <script src="navigation.js"></script>
+
+</body>
+</html>
+```
