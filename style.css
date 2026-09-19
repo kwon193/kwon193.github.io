@@ -366,6 +366,14 @@ footer { background-color: var(--primary); color: #cbd5e1; padding: 40px 0 20px;
   .pi-avatar-container {
     margin: 0 auto 18px;
   }
+  .member-card {
+    grid-template-columns: 1fr;    /* 모바일에서는 가로 배치를 세로 배치로 전환 */
+    text-align: center;
+    padding: 20px;
+  } 
+  .member-avatar-container {
+    margin: 0 auto 18px;
+  }
   
   .research-block {
     padding: 22px;
