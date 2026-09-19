@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
     <!-- 상단 소속 바 -->
     <div class="top-bar">
       <div class="container top-bar-content">
-        <span>홍익대학교 AI융합과학기술대학 조선해양모빌리티공학과</span>
+        <span>홍익대학교 AID융합과학기술대학 조선해양모빌리티공학과</span>
         <a href="contact.html">오시는 길 / Contact</a>
       </div>
     </div>
@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <li><a href="index.html" class="${page === 'index.html' ? 'active' : ''}">Home</a></li>
           <li><a href="research.html" class="${page === 'research.html' ? 'active' : ''}">Research</a></li>
           <li><a href="publications.html" class="${page === 'publications.html' ? 'active' : ''}">Publications</a></li>
-          <li><a href="team.html" class="${page === 'team.html' ? 'active' : ''}">Team</a></li>
+          <li><a href="team.html" class="${page === 'team.html' ? 'active' : ''}">People</a></li>
           <li><a href="contact.html" class="${page === 'contact.html' ? 'active' : ''}">Contact</a></li>
         </ul>
       </div>
