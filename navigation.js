@@ -37,6 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <li><a href="research.html" class="${page === 'research.html' ? 'active' : ''}">Research</a></li>
           <li><a href="publications.html" class="${page === 'publications.html' ? 'active' : ''}">Publications</a></li>
           <li><a href="team.html" class="${page === 'team.html' ? 'active' : ''}">People</a></li>
+          <li><a href="news.html" class="${page === 'news.html' ? 'active' : ''}">News</a></li>
           <li><a href="contact.html" class="${page === 'contact.html' ? 'active' : ''}">Contact</a></li>
         </ul>
       </div>
