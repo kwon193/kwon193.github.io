@@ -172,14 +172,14 @@ section { padding: 70px 0; }
 .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
 .member-card {
   display: grid;
-  grid-template-columns: 280px 1fr; /* 이미지 가로 크기를 180px로 고정하고 우측 정보를 배치 */
-  gap: 28px;                       /* 사진과 글 사이의 정갈한 간격 */
+  grid-template-columns: 180px 1fr;
+  gap: 28px;
   background: #ffffff;
   border-radius: 8px;
-  padding: 24px;                   /* 내부 여백을 살짝 줄여 조밀하게 변경 */
+  padding: 24px;
   border: 1px solid var(--border-color);
-  margin-bottom: 40px;
-  align-items: start;              /* 사진과 텍스트를 카드 상단 높이에 맞춤 */
+  margin-bottom: 0;
+  align-items: start;
 }
 
 /* 2. 이미지를 감싸는 프레임 크기 제한 */
