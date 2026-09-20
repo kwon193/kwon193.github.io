@@ -189,18 +189,16 @@ section { padding: 70px 0; }
   gap: 30px;
 }
 .member-avatar-container {
-  max-width: 180px;
-  border-radius: 6px;
-  overflow: hidden;
-  border: 1px solid var(--border-color);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* 부담스럽지 않은 가벼운 입체감 */
+  width: 180px;
+  height: auto;
+  overflow: visible;
 }
 
-/* 3. 이미지 자체 렌더링 방식 */
 .member-image {
-  width: 100%;
+  width: 180px;
   height: auto;
-  object-fit: contain;               /* 비율 찌그러짐 방지 */
+  max-width: 180px;
+  object-fit: contain;
   display: block;
 }
 
