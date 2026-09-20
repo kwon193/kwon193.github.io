@@ -183,6 +183,11 @@ section { padding: 70px 0; }
 }
 
 /* 2. 이미지를 감싸는 프레임 크기 제한 */
+.member-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
 .member-avatar-container {
   width: 100%;
   max-width: 230px;
@@ -365,6 +370,9 @@ footer { background-color: var(--primary); color: #cbd5e1; padding: 40px 0 20px;
   } 
   .pi-avatar-container {
     margin: 0 auto 18px;
+  }
+  .member-grid {
+    grid-template-columns: 1fr;
   }
   .member-card {
     grid-template-columns: 1fr;    /* 모바일에서는 가로 배치를 세로 배치로 전환 */
