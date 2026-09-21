@@ -451,6 +451,7 @@ section { padding: 70px 0; }
 }
 
 
+
 /* 푸터 */
 footer { background-color: var(--primary); color: #cbd5e1; padding: 40px 0 20px; font-size: 0.9rem; margin-top: auto; }
 .footer-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 30px; margin-bottom: 24px; }
@@ -494,4 +495,5 @@ footer { background-color: var(--primary); color: #cbd5e1; padding: 40px 0 20px;
   .research-block h3 {
     font-size: 1.3rem;
   }
+  .slide-cell img { height: 260px; }
 }
