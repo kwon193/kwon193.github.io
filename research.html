@@ -83,29 +83,72 @@
         <br>
         <br>
 
-
         <!-- ================= [연구 주제 3] ================= -->
         <article class="research-block">
-          <span class="research-topic-badge">Dynamics</span>
-          <h3>Advanced Temporal Discretization Method</h3>
+          <span class="research-topic-badge">Multiphysics</span>
+          <h3>Multiscale Modelling</h3>
           
           <div class="research-desc">
             <p>
-              대규모·복잡 구조 시스템의 안정적이고 효율적인 동적 해석을 위한 <strong>고급 시간 이산화 기법</strong> 개발
+              <strong>다중스케일 모델링</strong>을 통한 시뮬레이션 속도 및 해석 정확도 향상
             </p>
           </div>
 
           <!-- 주제 3 관련 그림 및 캡션 (주제 바로 밑에 배치) -->
-          <div class="research-figure-box">
-            <img 
-              src="assets/images/research_dyn.png" 
-              alt="Dynamic simulation"
-              class="research-figure-img"
-              onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&q=80&w=900&h=420';"
-            />
-            <!-- <figcaption class="research-figure-caption">
-              <strong>Figure 3.</strong> 고속 관통 시험 시 발생하는 응력파 전파 및 시편 후면의 취성 파편화(Fragmentation) 수치 시뮬레이션 비교.
-            </figcaption> -->
+          <div class="pure-slider-box">
+            <div class="slider-viewport">
+              <div class="slider-film">
+                <div class="slide-cell">
+                  <img src="assets/images/research_ms_1.png" alt="" onerror="this.onerror=null; this.src='https://via.placeholder.com/860x440?text=Granular+Simulation+2-1';">
+                </div>
+                <div class="slide-cell">
+                  <img src="assets/images/research_ms_2.png" alt="" onerror="this.onerror=null; this.src='https://via.placeholder.com/860x440?text=Granular+Simulation+2-2';">
+                </div>
+                <div class="slide-cell">
+                  <img src="assets/images/research_ms_3.png" alt="" onerror="this.onerror=null; this.src='https://via.placeholder.com/860x440?text=Granular+Simulation+2-2';">
+                </div>
+              </div>
+            </div>
+
+            <button class="slider-arrow prev" aria-label="이전 이미지">&#10094;</button>
+            <button class="slider-arrow next" aria-label="다음 이미지">&#10095;</button>
+
+            <div class="slider-indicators"></div>
+          </div>
+        </article>
+
+        <br>
+        <br>
+
+
+        <!-- ================= [연구 주제 4] ================= -->
+        <article class="research-block">
+          <span class="research-topic-badge">Dynamics</span>
+          <h3>Time Integration Method</h3>
+          
+          <div class="research-desc">
+            <p>
+              안정적이고 효율적인 동적 해석을 위한 <strong>고급 시간 이산화 기법</strong> 개발
+            </p>
+          </div>
+
+          <!-- 주제 4 관련 그림 및 캡션 (주제 바로 밑에 배치) -->
+          <div class="pure-slider-box">
+            <div class="slider-viewport">
+              <div class="slider-film">
+                <div class="slide-cell">
+                  <img src="assets/images/research_ti_1.png" alt="" onerror="this.onerror=null; this.src='https://via.placeholder.com/860x440?text=Granular+Simulation+2-1';">
+                </div>
+                <div class="slide-cell">
+                  <img src="assets/images/resesarch_ti_2.png" alt="" onerror="this.onerror=null; this.src='https://via.placeholder.com/860x440?text=Granular+Simulation+2-2';">
+                </div>
+              </div>
+            </div>
+
+            <button class="slider-arrow prev" aria-label="이전 이미지">&#10094;</button>
+            <button class="slider-arrow next" aria-label="다음 이미지">&#10095;</button>
+
+            <div class="slider-indicators"></div>
           </div>
         </article>
 
@@ -116,7 +159,6 @@
         <h4>Other research area</h4>
         <ul class="past-projects-list">
           <li>Real-time hybrid simulation</li>
-          <li>Advanced time integration method</li>
           <li>Damage model for polymeric foam</li>
         </ul>
       </div>
@@ -129,5 +171,63 @@
 
   <!-- 공통 레이아웃 주입 스크립트 -->
   <script src="navigation.js"></script>
+
+   <!-- ★ 순수 이미지 슬라이더 구동 스크립트 ★ -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const sliderBoxes = document.querySelectorAll(".pure-slider-box");
+
+      sliderBoxes.forEach((sliderBox) => {
+        const film = sliderBox.querySelector(".slider-film");
+        const slides = sliderBox.querySelectorAll(".slide-cell");
+        const prevBtn = sliderBox.querySelector(".slider-arrow.prev");
+        const nextBtn = sliderBox.querySelector(".slider-arrow.next");
+        const indicatorsBox = sliderBox.querySelector(".slider-indicators");
+
+        let currentIndex = 0;
+        const total = slides.length;
+
+        // 슬라이드가 1장일 경우 화살표 및 인디케이터 숨김
+        if (total <= 1) {
+          if (prevBtn) prevBtn.style.display = "none";
+          if (nextBtn) nextBtn.style.display = "none";
+          if (indicatorsBox) indicatorsBox.style.display = "none";
+          return;
+        }
+
+        // 인디케이터 점(Dot) 동적 생성
+        indicatorsBox.innerHTML = "";
+        for (let i = 0; i < total; i++) {
+          const dot = document.createElement("button");
+          dot.classList.add("indicator-dot");
+          dot.setAttribute("type", "button");
+          dot.setAttribute("aria-label", `${i + 1}번째 이미지로 이동`);
+          if (i === 0) dot.classList.add("active");
+          dot.addEventListener("click", () => moveTo(i));
+          indicatorsBox.appendChild(dot);
+        }
+
+        const dots = indicatorsBox.querySelectorAll(".indicator-dot");
+
+        function moveTo(index) {
+          currentIndex = index;
+          film.style.transform = `translateX(-${currentIndex * 100}%)`;
+          dots.forEach((dot, idx) => {
+            dot.classList.toggle("active", idx === currentIndex);
+          });
+        }
+
+        nextBtn.addEventListener("click", () => {
+          currentIndex = (currentIndex + 1) % total;
+          moveTo(currentIndex);
+        });
+
+        prevBtn.addEventListener("click", () => {
+          currentIndex = (currentIndex - 1 + total) % total;
+          moveTo(currentIndex);
+        });
+      });
+    });
+  </script>
 </body>
 </html>
