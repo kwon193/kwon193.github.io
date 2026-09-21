@@ -348,7 +348,7 @@ section { padding: 70px 0; }
 .slider-container {
   position: relative;
   width: 100%;
-  max-width: 860px;
+  max-width: 480px;
   margin: 0 auto;
   background-color: #f8fafc;
   border: 1px solid var(--border-color);
