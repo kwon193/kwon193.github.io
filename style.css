@@ -270,7 +270,6 @@ section { padding: 70px 0; }
 .research-figure-img {
   max-width: 100%;
   height: auto;
-  max-height: 480px; /* 이미지가 지나치게 세로로 길어지는 것 방지 */
   border-radius: 4px;
   display: block;
   margin: 0 auto;
