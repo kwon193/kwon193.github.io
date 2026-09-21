@@ -173,59 +173,81 @@
    <!-- ★ 순수 이미지 슬라이더 구동 스크립트 ★ -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      const sliderBoxes = document.querySelectorAll(".pure-slider-box");
+    const sliderBoxes = document.querySelectorAll(".pure-slider-box");
 
-      sliderBoxes.forEach((sliderBox) => {
-        const film = sliderBox.querySelector(".slider-film");
-        const slides = sliderBox.querySelectorAll(".slide-cell");
-        const prevBtn = sliderBox.querySelector(".slider-arrow.prev");
-        const nextBtn = sliderBox.querySelector(".slider-arrow.next");
-        const indicatorsBox = sliderBox.querySelector(".slider-indicators");
+    sliderBoxes.forEach((sliderBox) => {
+      const film = sliderBox.querySelector(".slider-film");
+      const slides = sliderBox.querySelectorAll(".slide-cell");
+      const indicatorsBox = sliderBox.querySelector(".slider-indicators");
 
-        let currentIndex = 0;
-        const total = slides.length;
+      let currentIndex = 0;
+      const total = slides.length;
 
-        // 슬라이드가 1장일 경우 화살표 및 인디케이터 숨김
-        if (total <= 1) {
-          if (prevBtn) prevBtn.style.display = "none";
-          if (nextBtn) nextBtn.style.display = "none";
-          if (indicatorsBox) indicatorsBox.style.display = "none";
-          return;
-        }
+      if (total <= 1) {
+        if (indicatorsBox) indicatorsBox.style.display = "none";
+        return;
+      }
 
-        // 인디케이터 점(Dot) 동적 생성
-        indicatorsBox.innerHTML = "";
-        for (let i = 0; i < total; i++) {
-          const dot = document.createElement("button");
-          dot.classList.add("indicator-dot");
-          dot.setAttribute("type", "button");
-          dot.setAttribute("aria-label", `${i + 1}번째 이미지로 이동`);
-          if (i === 0) dot.classList.add("active");
-          dot.addEventListener("click", () => moveTo(i));
-          indicatorsBox.appendChild(dot);
-        }
+      indicatorsBox.innerHTML = "";
 
-        const dots = indicatorsBox.querySelectorAll(".indicator-dot");
+      for (let i = 0; i < total; i++) {
+        const dot = document.createElement("button");
 
-        function moveTo(index) {
-          currentIndex = index;
-          film.style.transform = `translateX(-${currentIndex * 100}%)`;
-          dots.forEach((dot, idx) => {
-            dot.classList.toggle("active", idx === currentIndex);
-          });
-        }
+        dot.classList.add("indicator-dot");
+        dot.setAttribute("type", "button");
+        dot.setAttribute("aria-label", `${i + 1}번째 이미지로 이동`);
 
-        nextBtn.addEventListener("click", () => {
+        if (i === 0) dot.classList.add("active");
+
+        dot.addEventListener("click", () => moveTo(i));
+
+        indicatorsBox.appendChild(dot);
+      }
+
+      const dots = indicatorsBox.querySelectorAll(".indicator-dot");
+
+      function moveTo(index) {
+        currentIndex = index;
+
+        film.style.transform =
+          `translateX(-${currentIndex * 100}%)`;
+
+        dots.forEach((dot, idx) => {
+          dot.classList.toggle(
+            "active",
+            idx === currentIndex
+          );
+        });
+      }
+
+      /* Swipe */
+      let startX = 0;
+      let endX = 0;
+
+      sliderBox.addEventListener("touchstart", (e) => {
+        startX = e.touches[0].clientX;
+      });
+
+      sliderBox.addEventListener("touchend", (e) => {
+        endX = e.changedTouches[0].clientX;
+
+        const diff = endX - startX;
+        const threshold = 50;
+
+        if (Math.abs(diff) < threshold) return;
+
+        if (diff < 0) {
+          // 왼쪽 swipe → 다음
           currentIndex = (currentIndex + 1) % total;
-          moveTo(currentIndex);
-        });
-
-        prevBtn.addEventListener("click", () => {
+        } else {
+          // 오른쪽 swipe → 이전
           currentIndex = (currentIndex - 1 + total) % total;
-          moveTo(currentIndex);
-        });
+        }
+
+        moveTo(currentIndex);
       });
     });
+  });
   </script>
 </body>
 </html>
