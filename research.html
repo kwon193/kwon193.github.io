@@ -106,8 +106,8 @@
                   <img src="assets/images/research_ms_3.png" alt="" onerror="this.onerror=null; this.src='https://via.placeholder.com/860x440?text=Granular+Simulation+2-2';">
                 </div>
               </div>
-              <button class="slider-arrow prev" aria-label="이전 이미지">&#10094;</button>
-              <button class="slider-arrow next" aria-label="다음 이미지">&#10095;</button>
+              <!-- <button class="slider-arrow prev" aria-label="이전 이미지">&#10094;</button>
+              <button class="slider-arrow next" aria-label="다음 이미지">&#10095;</button> -->
             </div>
 
             <div class="slider-indicators"></div>
@@ -139,8 +139,8 @@
                   <img src="assets/images/research_ti_2.png" alt="" onerror="this.onerror=null; this.src='https://via.placeholder.com/860x440?text=Granular+Simulation+2-2';">
                 </div>
               </div>
-              <button class="slider-arrow prev" aria-label="이전 이미지">&#10094;</button>
-              <button class="slider-arrow next" aria-label="다음 이미지">&#10095;</button>
+              <!-- <button class="slider-arrow prev" aria-label="이전 이미지">&#10094;</button>
+              <button class="slider-arrow next" aria-label="다음 이미지">&#10095;</button> -->
             </div>
 
             <div class="slider-indicators"></div>
@@ -170,45 +170,64 @@
    <!-- ★ 순수 이미지 슬라이더 구동 스크립트 ★ -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-    const sliderBoxes = document.querySelectorAll(".pure-slider-box");
 
+    const sliderBoxes = document.querySelectorAll(".pure-slider-box");
+  
     sliderBoxes.forEach((sliderBox) => {
+  
+      const viewport = sliderBox.querySelector(".slider-viewport");
       const film = sliderBox.querySelector(".slider-film");
       const slides = sliderBox.querySelectorAll(".slide-cell");
       const indicatorsBox = sliderBox.querySelector(".slider-indicators");
-
+  
       let currentIndex = 0;
       const total = slides.length;
-
+  
       if (total <= 1) {
-        if (indicatorsBox) indicatorsBox.style.display = "none";
+        if (indicatorsBox) {
+          indicatorsBox.style.display = "none";
+        }
         return;
       }
-
+  
+      /* Indicators */
       indicatorsBox.innerHTML = "";
-
+  
       for (let i = 0; i < total; i++) {
+  
         const dot = document.createElement("button");
-
+  
         dot.classList.add("indicator-dot");
-        dot.setAttribute("type", "button");
-        dot.setAttribute("aria-label", `${i + 1}번째 이미지로 이동`);
-
-        if (i === 0) dot.classList.add("active");
-
-        dot.addEventListener("click", () => moveTo(i));
-
+        dot.type = "button";
+        dot.setAttribute(
+          "aria-label",
+          `${i + 1}번째 이미지로 이동`
+        );
+  
+        if (i === 0) {
+          dot.classList.add("active");
+        }
+  
+        dot.addEventListener("click", (e) => {
+          e.stopPropagation();
+          moveTo(i);
+        });
+  
         indicatorsBox.appendChild(dot);
       }
-
-      const dots = indicatorsBox.querySelectorAll(".indicator-dot");
-
+  
+      const dots =
+        indicatorsBox.querySelectorAll(".indicator-dot");
+  
+  
+      /* Move slider */
       function moveTo(index) {
+  
         currentIndex = index;
-
+  
         film.style.transform =
           `translateX(-${currentIndex * 100}%)`;
-
+  
         dots.forEach((dot, idx) => {
           dot.classList.toggle(
             "active",
@@ -216,34 +235,86 @@
           );
         });
       }
-
-      /* Swipe */
+  
+  
+      /* =========================
+         PC: Click left / right
+         ========================= */
+  
+      viewport.addEventListener("click", (e) => {
+  
+        if (window.innerWidth <= 768) {
+          return;
+        }
+  
+        const rect = viewport.getBoundingClientRect();
+        const clickX = e.clientX - rect.left;
+        const middle = rect.width / 2;
+  
+        if (clickX < middle) {
+  
+          // Left → Previous
+          currentIndex =
+            (currentIndex - 1 + total) % total;
+  
+        } else {
+  
+          // Right → Next
+          currentIndex =
+            (currentIndex + 1) % total;
+  
+        }
+  
+        moveTo(currentIndex);
+  
+      });
+  
+  
+      /* =========================
+         Mobile: Swipe
+         ========================= */
+  
       let startX = 0;
       let endX = 0;
-
-      sliderBox.addEventListener("touchstart", (e) => {
+  
+      viewport.addEventListener("touchstart", (e) => {
+  
         startX = e.touches[0].clientX;
-      });
-
-      sliderBox.addEventListener("touchend", (e) => {
+  
+      }, { passive: true });
+  
+  
+      viewport.addEventListener("touchend", (e) => {
+  
         endX = e.changedTouches[0].clientX;
-
+  
         const diff = endX - startX;
         const threshold = 50;
-
-        if (Math.abs(diff) < threshold) return;
-
-        if (diff < 0) {
-          // 왼쪽 swipe → 다음
-          currentIndex = (currentIndex + 1) % total;
-        } else {
-          // 오른쪽 swipe → 이전
-          currentIndex = (currentIndex - 1 + total) % total;
+  
+        if (Math.abs(diff) < threshold) {
+          return;
         }
-
+  
+        if (diff < 0) {
+  
+          // Swipe left → Next
+          currentIndex =
+            (currentIndex + 1) % total;
+  
+        } else {
+  
+          // Swipe right → Previous
+          currentIndex =
+            (currentIndex - 1 + total) % total;
+  
+        }
+  
         moveTo(currentIndex);
-      });
+  
+      }, { passive: true });
+  
     });
+  
   });
   </script>
 </body>
